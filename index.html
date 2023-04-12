@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SQL QUERIES</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 48px;
+      color: #333;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .reference-button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 24px;
+      background-color: #008080;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .reference-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .content {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #FFF;
+      border-radius: 8px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333;
+    margin: 20px;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  pre {
+    font-family: Consolas, monospace;
+    font-size: 16px;
+    background-color: #eee;
+    padding: 10px;
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+  }
+
+  code {
+    font-family: Consolas, monospace;
+    font-size: 16px;
+    background-color: #eee;
+    padding: 2px 5px;
+  }
+
+  ul {
+    margin-bottom: 20px;
+    list-style: disc;
+    padding-left: 30px;
+  }
+
+  ol {
+    margin-bottom: 20px;
+    list-style: decimal;
+    padding-left: 30px;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  table {
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  th, td {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #ddd;
+  }
+
+  .highlight {
+    background-color: yellow;
+    font-weight: bold;
+  }
+  </style>
+</head>
+
+<body>
+  <h1>SQL QURIES</h1>
+  <div class="button-container">
+    <button class="reference-button" onclick="location.href='#content-1'">DDL COMMANDS</button>
+    <button class="reference-button" onclick="location.href='#content-2'">DML COMMANDS</button>
+    <button class="reference-button" onclick="location.href='#content-3'">TCL IN SQL</button>
+    <button class="reference-button" onclick="location.href='#content-4'">JOINS IN SQL</button>
+
+    <button class="reference-button" onclick="location.href='#content-5'">CONTROL STRUCTURE OR PL/SQL PROGRAM</button>
+    <button class="reference-button" onclick="location.href='#content-6'">%TYPE AND %ROW TYPE</button>
+    <button class="reference-button" onclick="location.href='#content-7'">SELECT, WHERE,IN,OR,NOT,AND,IS NULL,WILD
+      CARD</button>
+    <button class="reference-button" onclick="location.href='#content-8'">ORDER BY, DISTICT, GROUP BY, AGGRIGATE
+      FUNCTION</button>
+
+    <button class="reference-button" onclick="location.href='#content-9'">CHARACTER, NUMBER FUNCTION</button>
+    <button class="reference-button" onclick="location.href='#content-10'">MULTIPLE ROW SUBQUARIES</button>
+    <button class="reference-button" onclick="location.href='#content-11'">CHARACTER </button>
+
+
+  </div>
+  <main>
+
+    <div id="content-1" class="content">
+      <p>
+        DDL, or Data Definition Language, is a set of SQL commands used to create, modify, and delete database objects
+        such as tables, views, indexes, and sequences. <br><br>
+        Here are some of the most common DDL commands and their explanations:<br><br>
+        <strong>CREATE:</strong> This command is used to create new objects in a database. The CREATE command can be
+        used to create tables, views, indexes, and other objects.<br><br>
+
+        <strong>Example:</strong><br>
+      <pre>
+  CREATE TABLE customers (
+  id INT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  email VARCHAR(50) UNIQUE
+  );
+</pre>
+      <br><br>
+
+      <strong>ALTER:</strong> This command is used to modify the structure of existing database objects. The ALTER
+      command can be used to add or remove columns, modify data types, or change constraints.<br><br>
+
+      <strong>Example:</strong><br>
+      <pre>
+  ALTER TABLE customers
+  ADD COLUMN phone VARCHAR(15);
+</pre>
+      <br><br>
+
+      <strong>DROP:</strong> This command is used to delete database objects. The DROP command can be used to delete
+      tables, views, indexes, and other objects.<br><br>
+
+      <strong>Example:</strong><br>
+      <pre>
+  DROP TABLE customers;
+</pre>
+      <br><br>
+
+      <strong>RENAME:</strong> This command is used to change the name of a database object. The RENAME command can be
+      used to rename tables and other objects.<br><br>
+
+      <strong>Example:</strong><br>
+      <pre>
+  ALTER TABLE customers
+  RENAME TO clients;
+</pre>
+      <br><br>
+
+      <strong>TRUNCATE:</strong> This command is used to delete all the data in a table, while keeping the table
+      structure intact.<br><br>
+
+      <strong>Example:</strong><br>
+      <pre>
+  TRUNCATE TABLE clients;
+</pre>
+      <br><br>
+
+      <strong>Example:</strong><br>
+      <pre>
+  CREATE TABLE Nishant (
+  ID NUMBER(1),
+  FIRST_NAME VARCHAR2(8),
+  SAL NUMBER(5)
+  );
+
+  SELECT * FROM Nishant;
+
+  ID       FIRST_NAME      SAL
+  -------- ----------------- -----
+  1        NISHANT           10000
+  2        SAHIL             9000
+  3        BAKRA             500
+
+  ALTER TABLE SAHIL1 RENAME TO NISHANT;
+
+  ALTER TABLE NISHANT ADD DEP VARCHAR2(8);
+
+  TRUNCATE TABLE NISHANT;
+
+  DROP TABLE NISHANT;
+</pre>
+
+      </p>
+    </div>
+
+
+    <div id="content-2" class="content">
+      <p>DML stands for Data Manipulation Language and it is a subset of SQL commands that are used to manipulate data in a database. DML commands are used to insert, update, and delete data from tables. Here are some of the most common DML commands and their explanations:</p>
+      <ul>
+        <li>INSERT: This command is used to insert new data into a table. The INSERT command can be used to insert one or more rows of data into a table.
+          <br><br>
+          <strong>Example:</strong><br>
+          <code>INSERT INTO customers (name, email, phone)<br>
+          VALUES ('John Doe', 'john.doe@example.com', '123-456-7890');</code>
+        </li>
+        <li>UPDATE: This command is used to modify existing data in a table. The UPDATE command can be used to update one or more rows of data in a table.
+          <br><br>
+          <strong>Example:</strong><br>
+          <code>UPDATE customers<br>
+          SET phone = '555-555-5555'<br>
+          WHERE name = 'John Doe';</code>
+        </li>
+        <li>DELETE: This command is used to delete data from a table. The DELETE command can be used to delete one or more rows of data from a table.
+          <br><br>
+          <strong>Example:</strong><br>
+          <code>DELETE FROM customers<br>
+          WHERE email = 'john.doe@example.com';</code>
+        </li>
+      </ul>
+      <p>These are just a few examples of DML commands. There are many more commands available, and they can vary slightly depending on the specific database management system being used.</p>
+      <ol>
+        <li><code>SQL&gt; INSERT INTO nisha<br>
+          (name)<br>
+          VALUES<br>
+          ('Nishant Mishra');</code><br><br>
+          <code>1 row created.</code>
+        </li>
+        <li><code>SQL&gt; ALTER TABLE nisha<br>
+          ADD SAL NUMBER(7);</code><br><br>
+          <code>Table altered.</code>
+        </li>
+        <li><code>SQL&gt; UPDATE nisha SET SAL = 100000;</code><br><br>
+          <code>1 row updated.</code>
+        </li>
+        <li><code>SQL&gt; DELETE FROM nisha WHERE SAL=100000;</code><br><br>
+          <code>1 row deleted.</code>
+        </li>
+        <li><code>SQL&gt; SELECT * FROM worker;</code><br><br>
+          <pre>WORKER_ID FIRST_NAME LAST_NAME SALARY  DEP
+---------- ---------- --------- -------- ------
+1          sahil      kumar     100099   HR
+2          nishant    mishra    200000   sales
+3          mandeep    tyagi     282882   admin
+4          deepak     sharma    2322     account
+5          shah       noor      191911   Hr</pre>
+        </li>
+      </ol>
+    </div>
+
+    <div id="content-3" class="content">
+      <br><br>
+      <p>
+        TCL, or Transaction Control Language, is a subset of SQL commands that are used to manage transactions in a database. TCL commands allow you to control the transactional behavior of SQL statements. Here are some of the most common TCL commands and their explanations:
+        <br><br>
+        <strong>COMMIT:</strong> This command is used to permanently save the changes made in a transaction to the database. Once the COMMIT command is executed, the changes become permanent and cannot be rolled back.
+        <br><br>
+        Example:<br><br>
+        <code>BEGIN TRANSACTION;<br>-- Some SQL statements<br>COMMIT;</code><br><br>
+        <strong>ROLLBACK:</strong> This command is used to undo the changes made in a transaction and restore the database to its previous state. The ROLLBACK command can be used to undo the changes made by one or more SQL statements in a transaction.
+        <br><br>
+        Example:<br><br>
+        <code>BEGIN TRANSACTION;<br>ROLLBACK;</code><br><br>
+        <strong>SAVEPOINT:</strong> This command is used to create a savepoint within a transaction. A savepoint is a point in a transaction where you can roll back to without rolling back the entire transaction.
+        <br><br>
+        Example:<br>
+        <code>BEGIN TRANSACTION;<br>SAVEPOINT my_savepoint;<br>ROLLBACK TO my_savepoint;<br>COMMIT;</code><br><br>
+        These are just a few examples of TCL commands. There are many more commands available, and they can vary slightly depending on the specific database management system being used.
+        <br><br>
+        <ol>
+          <li>SQL&gt; COMMIT;<br>Commit complete.</li>
+          <li>SQL&gt; ROLLBACK;<br>Rollback complete.</li>
+          <li>SQL&gt; SAVEPOINT my_savepoint;<br>Savepoint created.</li>
+        </ol>
+      </p><br><br>
+    </div>
+
+   <div id="content-4" class="content">
+    <p>In SQL, a join is used to combine rows from two or more tables based on a related column between them. Here are some of the most common types of joins and their explanations:</p>
+    <h3>Inner join:</h3>
+    <p>This type of join is used to combine rows from two tables based on a related column. An inner join returns only the rows that have matching values in both tables.</p>
+    <pre><code>
+      Example:
+      -- create table1 with random values
+      CREATE TABLE table1 (
+        id NUMBER(10),
+        value1 VARCHAR2(10),
+        value2 NUMBER(10,2)
+      );
+      -- create table2 with random values
+      CREATE TABLE table2 (
+        id NUMBER(10),
+        value3 VARCHAR2(10),
+        value4 NUMBER(10,2)
+      );
+      -- create table3 with random values
+      CREATE TABLE table3 (
+        id NUMBER(10),
+        value5 VARCHAR2(11),
+        value6 NUMBER(10,2)
+      );
+      -- perform inner join between table1, table2, and table3
+      SELECT *
+      FROM table1
+      JOIN table2 ON table1.id = table2.id
+      JOIN table3 ON table1.id = table3.id;
+    </code></pre>
+    <h3>Outer-join:</h3>
+    <p>This type of join is used to combine rows from two tables based on a related column. An outer join returns all the rows from one table and matching rows from the other table, or NULL values if there is no match.</p>
+    <pre><code>
+      Example:
+      -- Create the first table
+      CREATE TABLE orders (
+        order_id NUMBER,
+        customer_id NUMBER,
+        order_date DATE,
+        total_amount NUMBER
+      );
+      -- Create the second table
+      CREATE TABLE customers (
+        customer_id NUMBER,
+        first_name VARCHAR2(11),
+        last_name VARCHAR2(11),
+        email VARCHAR2(11)
+      );
+      -- Perform a left outer join on the orders and customers tables
+      SELECT o.order_id, c.first_name, c.last_name, o.total_amount
+      FROM orders o
+      LEFT OUTER JOIN customers c
+      ON o.customer_id = c.customer_id;
+    </code></pre>
+    <h3>Cartesian-join:</h3>
+    <p>This type of join is also called a cross join. A Cartesian join returns all possible combinations of rows from two tables, without any condition.</p>
+    <pre><code>
+      Example:
+      -- Create the first table
+      CREATE TABLE cities (
+        city_name VARCHAR2(11),
+        country_name VARCHAR2(11)
+      );
+      -- Create the second table
+      CREATE TABLE colors (
+        color_name VARCHAR2(11)
+      );
+      -- Perform a Cartesian join on the cities and colors tables
+      SELECT c.city_name, c.country_name, o.color_name
+      FROM cities c
+      CROSS JOIN colors o;
+    </code></pre>
+    <h3>Equi-join:</h3>
+    <p>This type of join is used to combine rows from two tables based on a matching column. In an equi-join, the matching column has the same name and data type in both tables.</p>
+    <pre><code>
+      Example:
+      -- Create the first table
+      CREATE TABLE employees (
+        employee_id NUMBER,
+        first_name VARCHAR2(11),
+        last_name VARCHAR2(11),
+        department_id NUMBER
+      );
+      -- Create the second table
+      CREATE TABLE departments (
+        -- Perform a self-join on the employees table<br>
+        SELECT e1.employee_id, e1.first_name, e1.last_name, e2.first_name AS manager_first_name,
+        e2.last_name AS manager_last_name<br>
+        FROM employees e1, employees e2<br>
+        WHERE e1.department_id = e2.department_id<BR>
+        AND e1.employee_id != e2.employee_id;<br>
+        <BR>
+    
+        EMPLOYEE_ID FIRST_NAME LAST_NAME MANAGER_FIRST_NAME MANAGER_LAST_NAME<BR>
+        ----------- ---------- --------- ----------------- ----------------<BR>
+        101 John Smith Jane Doe<BR>
+        102 Jane Doe John Smith<BR>
+        201 Mary Johnson Lisa Lee<BR>
+        202 Lisa Lee Mary Johnson<BR>
+        301 Tom Davis NULL NULL<BR>
+        401 Sarah Lee NULL NULL<BR>
+        <BR>
+    
+      </p>
+    </div>
+      
+
+    <div id="content-5" class="content">
+      <p>
+
+
+        Control structures are programming language constructs that are used to control the flow of execution in a
+        program. They allow developers to specify different sets of instructions to execute based on certain conditions
+        or
+        to repeat a set of instructions multiple times. There are three main types of control structures:
+        <br><BR>
+        Conditional control: This type of control structure allows developers to specify different sets of instructions
+        to
+        execute based on a certain condition. The most common conditional control structure is the if-else statement,
+        which checks a certain condition and executes one set of instructions if the condition is true, and another set
+        of
+        instructions if the condition is false.
+        <BR> Example:<br><BR>
+
+
+
+        Q - FIND WHETHER THE NUMBER IS ODD OR EVEN (USING IF, ELSE)?<br><BR>
+        1. SQL> set serveroutput on<br>
+        SQL> declare<br>
+        2 num NUMBER:=&num;<br>
+        3 BEGIN<br>
+        4 IF MOD(num, 2) = 0 THEN<br>
+        5 DBMS_OUTPUT.PUT_LINE(num||' is even ');<br>
+        6 ELSE<br>
+        7 DBMS_OUTPUT.PUT_LINE(num||' is odd ');<br>
+        8 END IF;<br>
+        9 END;<br>
+        10 /<br><BR>
+        Enter value for num: 5<br>
+        old 2: num NUMBER:=&num;<br>
+        new 2: num NUMBER:=5;<br>
+        5 is odd<br>
+        <br>
+        PL/SQL procedure successfully completed.<br>
+        <br>
+        <br>
+        Iterative control: This type of control structure allows developers to repeat a set of instructions multiple
+        times, either a fixed number of times or until a certain condition is met. The most common iterative control
+        structures are the for loop, while loop, and do-while loop.<BR><BR>
+        Example: <br>
+
+
+        2.Q - MULTIPICATION TABLE (USING FOR LOOP)?<br>
+        SQL> set serveroutput on<br>
+        SQL> declare<br>
+        2 n NUMBER:=&n;<br>
+        3 BEGIN<br>
+        4 FOR i IN 1..10 LOOP<br>
+        5 DBMS_OUTPUT.PUT_LINE(n||' * '||i||' = '||n*i);<br>
+        6 END LOOP;<br>
+        7 END;<br>
+        8 /<br><BR>
+        Enter value for n: 5<br>
+        old 2: n NUMBER:=&n;<br>
+        new 2: n NUMBER:=5;<br><BR>
+        5 * 1 = 5<br>
+        5 * 2 = 10<br>
+        5 * 3 = 15<br>
+        5 * 4 = 20<br>
+        5 * 5 = 25<br>
+        5 * 6 = 30<br>
+        5 * 7 = 35<br>
+        5 * 8 = 40<br>
+        5 * 9 = 45<br>
+        5 * 10 = 50<br>
+        <br>
+        PL/SQL procedure successfully completed.<br><BR>
+        Q-USING GOTO STATEMENT?<br><BR>
+        <br>
+        SQL> SET SERVEROUTPUT ON<br>
+        SQL> DECLARE<BR>
+        2 num NUMBER:=&num;<BR>
+        3 BEGIN<BR>
+        4 IF num<0 THEN<BR>
+          5 DBMS_OUTPUT.PUT_LINE('ERROR : NUMBER MUST BE NON-NEGATIVE');<BR>
+          6 GOTO end_program;<BR>
+          7 END IF;<BR>
+          8 DBMS_OUTPUT.PUT_LINE('THE SEQUARE OF ' ||num||' IS '||num*num);<BR>
+          9 <<end_program>><BR>
+            10 DBMS_OUTPUT.PUT_LINE('PROGRAM COMPLETE');<BR>
+            11 END;<BR>
+            12 /<BR><BR>
+            Enter value for num: 5<BR>
+            old 2: num NUMBER:=&num;<BR>
+            new 2: num NUMBER:=5;<BR><BR>
+            THE SEQUARE OF 5 IS 25<BR><BR>
+            PROGRAM COMPLETE<BR>
+            <BR><BR>
+            PL/SQL procedure successfully completed.<BR>
+            <BR>
+
+    </div>
+
+    
+    <div id="content-6" class="content">
+      <p>In SQL, %TYPE and %ROWTYPE are used to define variables and parameters in PL/SQL, which is a procedural
+        language
+        extension for SQL.
+        <BR><BR>
+        %TYPE: This attribute is used to define a variable based on the data type of a column in a table, view, or
+        another
+        variable. It can simplify coding by automatically ensuring that the variable has the same data type as the
+        referenced column or variable.
+        <BR><BR> Example: If we want to declare a variable "emp_salary" with the same data type as the "salary" column
+        in
+        the "employee" table, we can use %TYPE as follows:
+        <BR>
+
+        <BR>DECLARE <BR><BR>
+        emp_salary employee.salary%TYPE;<BR>
+        BEGIN <BR><BR>
+        -- code to perform operations on emp_salary <BR>
+        END;.<BR><BR>
+        <BR><BR>
+        SQL> select *from moti;<BR><BR>
+        <BR><BR>
+        ENO ENAME JOB SAL COMMI DEPNO<BR><BR>
+        ---------- -------- -------- ---------- ---------- ----------<BR><BR>
+        45 Nishant Clerk 6000 1000 20<BR><BR>
+        63 Sahil Sales 10000 500 30<BR><BR>
+        20 Shiv Manager 20000 10<BR><BR>
+        96 Vivek Sales 8000 2000 60<BR><BR>
+        <BR><BR>
+        SQL> set serverouput on<BR><BR>
+        SP2-0735: unknown SET option beginning "serveroupu..."<BR><BR>
+        SQL> set serveroutput on<BR><BR>
+        SQL> declare<BR>
+        2 salary moti.sal%type;<BR>
+        3 ecode moti.eno%type;<BR>
+        4 begin<BR>
+        5 ecode:=&ecode;<BR>
+        6 select sal into salary from moti where eno=ecode;<BR>
+        7 dbms_output.put_line('salary of '||ecode||' is '||salary);<BR>
+        8 end;<BR>
+        9 /<BR><BR>
+        Enter value for ecode: 63<BR>
+        old 5: ecode:=&ecode;<BR>
+        new 5: ecode:=63;<BR><BR>
+        salary of 63 is 10000<BR>
+        <BR><BR>
+
+        %ROWTYPE: This attribute is used to define a record variable based on the structure of a row in a table or view.
+        It can simplify coding by automatically creating a variable with the same structure as the referenced table or
+        view.
+        <BR> <BR>Example: If we want to declare a record variable "emp_record" with the same structure as the rows in
+        the
+        "employee" table, we can use %ROWTYPE as follows:
+        <BR><br>
+        <br>
+        DECLARE <BR>
+        emp_record employee%ROWTYPE;<BR>
+        BEGIN <BR>
+        -- code to perform operations on emp_record <BR>
+        END;<BR>
+        <BR><br>
+
+        PL/SQL procedure successfully completed.<BR>
+        <BR>
+        <BR>
+
+        SQL> set serveroutput on<BR>
+        SQL> declare<BR>
+        2 e moti%Rowtype;<BR>
+        3 begin<BR>
+        4 select * into e from moti where eno = 45;<BR>
+        5 dbms_output.put_line(e.ename);<BR>
+        6 dbms_output.put_line(e.sal);<BR>
+        7 dbms_output.put_line(e.commi);<BR>
+        8 end;<BR>
+        9 /<BR>
+        Nishant<BR>
+        6000<BR>
+        1000<BR>
+        <BR>
+        PL/SQL procedure successfully completed.<BR>
+
+        <BR>
+
+
+      </p>
+    </div>
+    <div id="content-7" class="content">
+      <p>
+
+        <BR>
+
+        SELECT: The SELECT statement is used to retrieve data from one or more tables in a database.
+        <br>It allows you to specify the columns and rows to be returned based on the specified conditions.<br>
+        <BR>
+        <BR>
+        SELECT *FROM MOTI;<BR>
+        <BR>
+        ENO ENAME JOB SAL COMMI DEPNO<BR>
+        ---------- -------- -------- ---------- ---------- ----------<BR>
+        45 Nishant Clerk 6000 1000 20<BR>
+        63 Sahil Sales 10000 500 30<BR>
+        20 Shiv Manager 20000 10<BR>
+        96 Vivek Sales 8000 2000 60 <BR>
+        <BR>
+        <BR>
+        <BR>
+        SQL> SELECT *FROM WORKER;<BR>
+        <BR>
+        WORKER_ID FIRT_NAM LAST_NAM SALARY DEP<BR>
+        ---------- -------- -------- ---------- --------<BR>
+        1 sahil kumar 100099 HR<BR>
+        2 nishant mishra 200000 sales<BR>
+        3 mandeep tyagi 282882 admin<BR>
+        4 deepak sharma 2322 account<BR>
+        5 shah noor 191911 Hr<BR>
+        <BR>
+        <BR>
+        SELECT *FROM BONUS;<BR>
+        <BR>
+        WORKER_REF BONUS<BR>
+        ---------- ----------<BR>
+        1 5000<BR>
+        2 1000<BR>
+        3 4000<BR>
+        4 1<BR>
+        5 3000<br><BR>
+        <BR>
+
+        SELECT *FROM TITLE;<BR>
+        <BR>
+        WORKER_REF WORKER_T<BR>
+        ---------- --------<BR>
+        1 man<BR>
+        2 exe<BR>
+        3 asst<BR>
+        4 exe<BR>
+        5 asst<BR>
+        <BR>
+        <BR>
+        <BR>
+        UPDATE WORKER SET DEP='HR' WHERE WORKER_ID=5;<BR>
+        <BR>
+        1 row updated.<BR>
+
+
+
+        <BR>
+        SELECT *FROM WORKER;<BR>
+        <BR>
+        WORKER_ID FIRT_NAM LAST_NAM SALARY DEP<BR>
+        ---------- -------- -------- ---------- --------<BR>
+        1 sahil kumar 100099 HR<BR>
+        2 nishant mishra 200000 sales<BR>
+        3 mandeep tyagi 282882 admin<BR>
+        4 deepak sharma 2322 account<BR>
+        5 shah noor 191911 HR<BR>
+        <BR>
+        <BR>
+        <br> WHERE: The WHERE clause is used to filter the data retrieved by the SELECT statement.
+        <br> It allows you to specify a condition that must be met for each row to be returned.<br>
+        <BR>
+        SELECT *FROM WORKER WHERE DEP='HR';<BR>
+        <BR>
+        WORKER_ID FIRT_NAM LAST_NAM SALARY DEP<BR>
+        ---------- -------- -------- ---------- --------<BR>
+        1 sahil kumar 100099 HR<BR>
+        5 shah noor 191911 HR<BR>
+        <BR>
+        <BR>
+
+        SELECT *FROM WORKER WHERE SALARY=ANY(10000,200000);<BR>
+        <BR>
+        WORKER_ID FIRT_NAM LAST_NAM SALARY DEP<BR>
+        ---------- -------- -------- ---------- --------<BR>
+        2 nishant mishra 200000 sales<BR>
+        <BR>
+        <BR>
+        <BR>
+        AND: The AND operator is used to combine two or more conditions in a WHERE clause.
+        <br> All conditions must be true for the overall condition to be considered true.<br>
+        <BR>SELECT *FROM WORKER WHERE SALARY BETWEEN 10000 AND 200000;<BR>
+        <BR>
+        WORKER_ID FIRT_NAM LAST_NAM SALARY DEP<BR>
+        ---------- -------- -------- ---------- --------<BR>
+        1 sahil kumar 100099 HR<BR>
+        2 nishant mishra 200000 sales<BR>
+        5 shah noor 191911 HR<BR>
+        <BR>
+
+        <br> OR: The OR operator is used to combine two or more conditions in a WHERE clause.<br> If any of the
+        conditions
+        are true, the overall condition is considered true.
+        <br>
+        <BR>
+        SELECT *FROM WORKER WHERE DEP='HR' OR FIRT_NAME='nishant';<BR>
+        <BR>
+        WORKER_ID FIRT_NAM LAST_NAM SALARY DEP<BR>
+        ---------- -------- -------- ---------- --------<BR>
+        1 sahil kumar 100099 HR<BR>
+        2 nishant mishra 200000 sales<BR>
+        5 shah noor 191911 HR<BR>
+        <BR>
+
+
+
+        SELECT *FROM WORKER WHERE DEP='HR' OR DEP='admin';<BR>
+        <BR>
+        WORKER_ID FIRT_NAM LAST_NAM SALARY DEP<BR>
+        ---------- -------- -------- ---------- --------<BR>
+        1 sahil kumar 100099 HR<BR>
+        3 mandeep tyagi 282882 admin<BR>
+        5 shah noor 191911 HR<BR>
+
+        <BR>
+        <BR>
+
+
+        select *from worker where DEP='sales' OR DEP='admin' OR DEP='account';<BR>
+        <BR>
+        WORKER_ID FIRT_NAM LAST_NAM SALARY DEP<BR>
+        ---------- -------- -------- ---------- --------<BR>
+        2 nishant mishra 200000 sales<BR>
+        3 mandeep tyagi 282882 admin<BR>
+        4 deepak sharma 2322 account<BR>
+        <BR>
+
+        <br>IN: The IN operator is used to compare a value with a list of possible values.
+        <br> It allows you to specify a set of values, and if the value being evaluated matches any of the values in the
+        set, the condition is considered true.<br>
+        <BR>
+        <BR>
+        select *from worker where DEP IN ('sales','admin','account');<BR>
+        <BR>
+        WORKER_ID FIRT_NAM LAST_NAM SALARY DEP<BR>
+        ---------- -------- -------- ---------- --------<BR>
+        2 nishant mishra 200000 sales<BR>
+        3 mandeep tyagi 282882 admin<BR>
+        4 deepak sharma 2322 account<BR>
+        <BR>
+        <BR>
+        NOT: The NOT operator is used to negate a condition. <br>If the original condition is true, the NOT operator
+        makes
+        it false, and vice versa.<br>
+        <BR>select *from worker where DEP NOT IN ('sales','admin','account');<BR>
+        <BR>
+        WORKER_ID FIRT_NAM LAST_NAM SALARY DEP<BR>
+        ---------- -------- -------- ---------- --------<BR>
+        1 sahil kumar 100099 HR<BR>
+        5 shah noor 191911 HR<BR><BR>
+        <BR>
+        IS NULL: The IS NULL operator is used to check whether a value is NULL.<br> If the value is NULL, the condition
+        is
+        considered true.<br>
+        <BR>select *from MOTI WHERE COMMI IS NULL;<BR>
+        <BR>
+        ENO ENAME JOB SAL COMMI DEPNO<BR>
+        ---------- -------- -------- ---------- ---------- ----------<BR>
+        20 Shiv Manager 20000 10<BR>
+        <BR>
+        <br>Wildcards: In SQL, wildcards are used to match patterns in text values. <br>The most commonly used wildcards
+        are:<br>
+        <BR>
+        %: Matches any string of zero or more characters.<BR>
+        _: Matches any single character.<br><BR>
+        <BR>SELECT *FROM MOTI WHERE ENAME LIKE 'N%';<BR>
+        <BR>
+        ENO ENAME JOB SAL COMMI DEPNO<BR>
+        ---------- -------- -------- ---------- ---------- ----------<BR>
+        45 Nishant Clerk 6000 1000 20<BR>
+        <BR>
+
+        <BR>
+        SELECT *FROM MOTI WHERE ENAME LIKE 'N__h___';<BR>
+        <BR>
+        ENO ENAME JOB SAL COMMI DEPNO<BR>
+        ---------- -------- -------- ---------- ---------- ----------<BR>
+        45 Nishant Clerk 6000 1000 20<BR>
+
+        <BR>
+
+        <BR>
+      </p>
+    </div>
+    <div id="content-8" class="content">
+      <p>
+        ORDER BY is a clause in SQL that is used to sort the result set of a SELECT statement in ascending or descending
+        order based on one or more columns.<br>
+
+        ASC and DESC are keywords used in conjunction with ORDER BY to specify the sorting order. <br>
+        ASC (short for ascending) sorts the result set in ascending order (lowest to highest) based on the specified
+        column(s).
+
+        <br>
+        SELECT *FROM WORKER ORDER BY SALARY ASC;<BR>
+        <BR>
+        WORKER_ID FIRT_NAM LAST_NAM SALARY DEP<BR>
+        ---------- -------- -------- ---------- --------<BR>
+        4 deepak sharma 2322 account<BR>
+        1 sahil kumar 100099 HR<BR>
+        5 shah noor 191911 HR<BR>
+        2 nishant mishra 200000 sales<BR>
+        3 mandeep tyagi 282882 admin<BR>
+        <BR>
+        <br>DESC (short for descending) sorts the result set in descending order (highest to lowest) based on the
+        specified column(s).
+        <BR>
+        SELECT *FROM WORKER ORDER BY SALARY DESC;<BR>
+        <BR>
+        WORKER_ID FIRT_NAM LAST_NAM SALARY DEP<BR>
+        ---------- -------- -------- ---------- --------<BR>
+        3 mandeep tyagi 282882 admin<BR>
+        2 nishant mishra 200000 sales<BR>
+        5 shah noor 191911 HR<BR>
+        1 sahil kumar 100099 HR<BR>
+        4 deepak sharma 2322 account<BR>
+
+        <BR>
+        <BR>
+        DISTINCT is used to eliminate duplicate values in the result set. <br>
+        When you use the DISTINCT keyword, the SELECT statement will return only the unique values from the specified
+        column(s).<br>
+        For example, the following SQL statement returns only the unique values from the "DEP" column in the "WORKERS"
+        table:<br>
+        SELECT DISTINCT DEP FROM WORKER;<BR>
+        <BR>
+        DEP<BR>
+        --------<BR>
+        HR<BR>
+        account<BR>
+        sales<BR>
+        admin<BR>
+
+        <BR>
+        SELECT DEP FROM WORKER GROUP BY DEP;<BR>
+        <BR>
+        DEP<BR>
+        --------<BR>
+        HR<BR>
+        account<BR>
+        sales<BR>
+        admin<BR>
+        <BR>
+        <BR>
+
+        <BR> In SQL, aggregate functions are used to perform calculations on a set of values and return a single value
+        as
+        the result.
+        These functions can be applied to a group of rows or to an entire table, depending on the query.
+        <BR>
+        Here are some commonly used aggregate functions in SQL:
+        <BR>
+        COUNT: This function is used to count the number of rows in a table or a group of rows that meet a certain
+        condition. It can be used with the * operator to count all rows or with a specific column to count the number of
+        non-null values in that column.
+        <BR>Example: <BR>
+        SELECT DEP,COUNT(*) FROM WORKER GROUP BY DEP;<BR>
+        <BR>
+        DEP COUNT(*)<BR>
+        -------- ----------<BR>
+        HR 2<BR>
+        account 1<BR>
+        sales 1<BR>
+        admin 1<BR>
+
+        <BR>
+        <BR> MIN: This function is used to find the smallest value in a table or a group of rows that meet a certain
+        condition. It can be used with a specific column to find the smallest value in that column.
+        <BR> Example:<BR>
+        SELECT DEP,MIN(SALARY) FROM WORKER GROUP BY DEP;<BR>
+        <BR>
+        DEP MIN(SALARY)<BR>
+        -------- -----------<BR>
+        HR 100099<BR>
+        account 2322<BR>
+        sales 200000<BR>
+        admin 282882<BR>
+        <BR>
+        <BR>
+        AVG: This function is used to calculate the average of a set of values in a table or a group of rows that meet a
+        certain condition. It can be used with a specific column to calculate the average of the values in that column.
+        <BR>
+        Example:<BR>
+
+        SQL> SELECT DEP,AVG(SALARY) FROM WORKER GROUP BY DEP;<BR>
+        <BR>
+        DEP AVG(SALARY)<BR>
+        -------- -----------<BR>
+        HR 146005<BR>
+        account 2322<BR>
+        sales 200000<BR>
+        admin 282882<BR>
+        <BR>
+        <BR> MAX: This function is used to find the largest value in a table or a group of rows that meet a certain
+        condition. It can be used with a specific column to find the largest value in that column.
+        <BR>Example: <BR>
+
+        SQL> SELECT DEP,MAX(SALARY) FROM WORKER GROUP BY DEP;<BR>
+        <BR>
+        DEP MAX(SALARY)<BR>
+        -------- -----------<BR>
+        HR 191911<BR>
+        account 2322<BR>
+        sales 200000<BR>
+        admin 282882<BR>
+      </p>
+
+    </div>
+    <div id="content-9" class="content"><BR>
+      <p>
+        INITCAP(): Capitalizes the first letter of each word in a string.
+        <br>
+
+        SELECT INITCAP('noor') FROM DUAL;<BR>
+        <BR>
+        INIT<BR>
+        ----<BR>
+        Noor<BR>
+        <BR>
+        <BR>
+        SELECT INITCAP('noOOR') FROM DUAL;<BR>
+        <BR>
+        INITC<BR>
+        -----<BR>
+        Nooor<BR>
+        <BR>
+        ASCII(): Returns the ASCII code of a character.
+
+        <BR>
+        SELECT ASCII('hello') from dual;<BR>
+        <BR>
+        ASCII('HELLO')<BR>
+        --------------<BR>
+        104<BR>
+        <BR>
+        SQL> SELECT ASCII('ello') from dual;<BR>
+        <BR>
+        ASCII('ELLO')<BR>
+        -------------<BR>
+        101<BR>
+        <BR>
+        CHR(): Returns a character based on the ASCII code.<br>
+        SQL> select CHR(69), CHR(65) FROM DUAL;<BR>
+        <BR>
+        C C<BR>
+        - -<BR>
+        E A<BR>
+        <BR>
+        <br>
+        LENGTH(): Returns the length of a string.<br>
+
+        SQL> SELECT ENAME, LENGTH(ENAME) FROM MOTI;<BR>
+        <BR>
+        ENAME LENGTH(ENAME)<BR>
+        -------- -------------<BR>
+        Nishant 7<BR>
+        Sahil 5<BR>
+        Shiv 4<BR>
+        Vivek 5<BR>
+        <BR>
+        <br> REPLACE(): Replaces a substring in a string with another substring.<br>
+        SQL> SELECT ENAME, REPLACE(ENAME,'a','A') from moti;<BR>
+        <BR>
+        ENAME REPLACE(<BR>
+        -------- --------<BR>
+        Nishant NishAnt<BR>
+        Sahil SAhil<BR>
+        Shiv Shiv<BR>
+        Vivek Vivek<BR>
+        <BR>
+        SQL> SELECT ENAME, REPLACE (ENAME,'a','A') from moti;<BR>
+        <BR>
+        ENAME REPLACE(<BR>
+        -------- --------<BR>
+        Nishant NishAnt<BR>
+        Sahil SAhil<BR>
+        Shiv Shiv<BR>
+        Vivek Vivek<BR>
+        <BR>
+        <BR>
+        LTRIM(): Removes leading spaces from a string.<br>
+        SELECT JOB, LTRIM(JOB,'C') FROM moti;<BR>
+        <BR>
+        JOB LTRIM(JO<BR>
+        -------- --------<BR>
+        Clerk lerk<BR>
+        Sales Sales<BR>
+        Manager Manager<BR>
+        Sales Sales<BR>
+        <BR>
+        <br> LPAD(): Pads a string with a specified character on the left until the string reaches a specified
+        length.<br>
+        SQL> SELECT JOB, LPAD(JOB,8,'$') FROM MOTI;<BR>
+        <BR>
+        JOB LPAD(JOB,8,'$')<BR>
+        -------- --------------------------------<BR>
+        Clerk $$$Clerk<BR>
+        Sales $$$Sales<BR>
+        Manager $Manager<BR>
+        Sales $$$Sales<BR>
+        <BR>
+        <br> RPAD(): Pads a string with a specified character on the right until the string reaches a specified
+        length.<br>
+        SQL> SELECT JOB, RPAD(JOB,8,'$') FROM MOTI;<BR>
+
+        JOB RPAD(JOB,8,'$')<BR>
+        -------- --------------------------------<BR>
+        Clerk Clerk$$$<BR>
+        Sales Sales$$$<BR>
+        Manager Manager$<BR>
+        Sales Sales$$$<BR>
+        <BR>
+        SQL> SELECT JOB, RPAD(JOB,6,'$') FROM MOTI;<BR>
+
+        JOB RPAD(JOB,6,'$')<BR>
+        -------- ------------------------<BR>
+        Clerk Clerk$<BR>
+        Sales Sales$<BR>
+        Manager Manage<BR>
+        Sales Sales$<BR>
+        <BR>
+        <br>LOWER(): Converts a string to lowercase.<br>
+
+        UPPER(): Converts a string to uppercase.<br>
+
+        SELECT LOWER('MOTI'), UPPER('nishant') from dual;<BR>
+
+        LOWE UPPER('<BR>
+        ---- -------<BR>
+        moti NISHANT<BR>
+        <BR>
+
+        Number functions in SQL are used to perform mathematical operations on numerical data. Here are some commonly
+        used
+        number functions in SQL:
+        <BR>
+        EXP: This function returns the exponential value of a given number. It takes one argument, which is the base
+        number.<BR>
+        Example: To find the exponential value of 5, we can use the following query:<BR>
+        SELECT EXP(5) FROM DUAL;<BR>
+
+        EXP(5)<BR>
+        ----------<BR>
+        148.413159<BR>
+        <BR>
+        <BR>
+        FLOOR: This function returns the largest integer value that is less than or equal to a given number.<BR>
+        Example: To find the floor value<BR>
+        SQL> SELECT FLOOR(10.001), FLOOR(-1.99) FROM DUAL;<BR>
+
+        FLOOR(10.001) FLOOR(-1.99)<BR>
+        ------------- ------------<BR>
+        10 -2<BR>
+        <BR>
+        <BR>LOG: This function returns the natural logarithm of a given number. It takes one argument, which is the base
+        number.<BR>
+        Example: To find the natural logarithm :<BR>
+
+        SELECT LOG(2,100) FROM DUAL;<BR>
+
+        LOG(2,100)<BR>
+        ----------<BR>
+        6.64385619<BR>
+
+        <BR>
+        MOD: This function returns the remainder of a division operation between two numbers. It takes two arguments,
+        which are the dividend and divisor.<BR>
+        Example: To find the remainder of dividing 10 by 3, we can use the following query:<BR>
+        SELECT MOD(10,3), MOD(6,0) FROM DUAL;<BR>
+
+        MOD(11,3) MOD(6,0)<BR>
+        ---------- ----------<BR>
+        2 6<BR>
+
+        <BR>
+
+        SQRT: This function returns the square root of a given number.<BR>
+        Example: To find the square root of 256 and 900, we can use the following query:<BR>
+
+        SELECT SQRT(256), SQRT(900) FROM DUAL;<BR>
+
+        SQRT(256) SQRT(900)
+        ---------- ----------
+        16 30<BR><BR>
+
+        SELECT POWER(10,3) FROM DUAL;<BR>
+
+        <BR> POWER: This function returns the result of raising a given number to a specified power. It takes two
+        arguments, which are the base number and the exponent.
+        <BR> Example: To find the value of 10 raised to the power of 3, we can use the following query:<BR>
+
+        POWER(10,3)<BR>
+        -----------<BR>
+        1000<BR>
+
+        <BR>
+        <BR>ROUND: This function rounds a given number to a specified number of decimal places. It takes two arguments,
+        which are the number to be rounded and the number of decimal places.
+        <BR>Example: To round 24.27 to one decimal places, we can use the following query:<BR>
+
+        SELECT ROUND(24.27,1) FROM DUAL;<BR>
+
+        ROUND(24.27,1)<BR>
+        --------------<BR>
+        24.3<BR>
+        <BR>
+        <BR> CEIL: This function returns the smallest integer value that is greater than or equal to a given number.
+        <BR>Example: To find the ceiling value , we can use the following query:<BR>
+        <BR>
+        SELECT CEIL(-1.99), CEIL(25.35) FROM DUAL;<BR>
+
+        CEIL(-1.99) CEIL(25.35)<BR>
+        ----------- -----------<BR>
+        -1 26<BR>
+
+        <BR>
+        <BR>ABS: This function returns the absolute value of a given number, which is its distance from zero.
+        <BR>Example: To find the absolute value of -5, we can use the following query:<BR>
+
+        SELECT ABS(-1.99), ABS(25.35) FROM DUAL;<BR>
+
+        ABS(-1.99) ABS(25.35)<br>
+        ---------- ----------<BR>
+        1.99 25.35<BR>
+
+      </p>
+    </div>
+    <div id="content-10" class="content">
+      <p>
+
+        CREATE TABLE students (<br>
+        id INT PRIMARY KEY,<br>
+        name VARCHAR(50),<br>
+        age INT,<br>
+        grade FLOAT<br>
+        );<br>
+
+        INSERT INTO students (id, name, age, grade) VALUES<br>
+        (1, 'Alice', 18, 3.5),<br>
+        (2, 'Bob', 20, 3.0),<br>
+        (3, 'Charlie', 19, 4.0),<br>
+        (4, 'Dave', 21, 2.5),<br>
+        (5, 'Eve', 18, 3.8);<br>
+        Now, let's perform the IN, ANY, and ALL operations:<br>
+
+        IN operation:<br>
+        The IN operator is used to check if a value matches any value in a list or a subquery.
+        <br>
+        Example:<br>
+        SELECT name, age<br>
+        FROM students<br>
+        WHERE age IN (18, 20);<br>
+        Output:<br>
+
+        +-------+-----+<br>
+        | name | age |<br>
+        +-------+-----+<br>
+        | Alice | 18 |<br>
+        | Bob | 20 |<br>
+        | Eve | 18 |<br>
+        +-------+-----+<br>
+        In this example, we selected the names and ages of all students whose age is either 18 or 20 using the IN
+        operator.
+        <br>
+        ANY operation:<br>
+        The ANY operator is used to check if a value matches any value in a list or a subquery, and it can be used with
+        comparison operators such as =, <,>, <=,>=, and <>.
+              <br>
+              Example:<br>
+
+
+              SELECT name, grade<br>
+              FROM students<br>
+              WHERE grade >= ANY (SELECT grade FROM students WHERE age = 18);<br>
+              Output:<br>
+
+
+              +--------+-------+<br>
+              | name | grade |<br>
+              +--------+-------+<br>
+              | Alice | 3.5 |<br>
+              | Charlie| 4.0 |<br>
+              | Eve | 3.8 |<br>
+              +--------+-------+<br>
+              In this example, we selected the names and grades of all students whose grade is greater than or equal to
+              any grade of students who are 18 years old.
+              <br><br>
+              ALL operation:<br>
+              The ALL operator is used to check if a value matches all values in a list or a subquery, and it can be
+              used
+              with comparison operators such as =, <,>, <=,>=, and <>.
+                    <br>
+                    Example:<br>
+
+                    SELECT name, grade<br>
+                    FROM students<br>
+                    WHERE grade >= ALL (SELECT grade FROM students WHERE age > 18);<br>
+                    Output:
+                    <br>
+
+                    +-------+-------+<br>
+                    | name | grade |<br>
+                    +-------+-------+<br>
+                    | Alice | 3.5 |<br>
+                    | Eve | 3.8 |<br>
+                    +-------+-------+<br>
+                    In this example, we selected the names and grades of all students whose grade is greater than or
+                    equal
+                    to all grades of students who are older than 18 years old.
+                    <br>
+      </p>
+    </div>
+    <div id="content-11" class="content">
+      <p> perform UNION, INTERSECT, and MINUS operations.<br>
+        <br>
+        Here's an example table:
+
+        <br>
+        CREATE TABLE fruits (<br>
+        id INT PRIMARY KEY,<br>
+        name VARCHAR(50)<br>
+        );<br>
+
+        INSERT INTO fruits (id, name) VALUES<br>
+        (1, 'Apple'),<br>
+        (2, 'Banana'),<br>
+        (3, 'Orange'),<br>
+        (4, 'Grape'),<br>
+        (5, 'Mango');<br>
+
+        CREATE TABLE vegetables (<br>
+        id INT PRIMARY KEY,<br>
+        name VARCHAR(50)<br>
+        );<br>
+
+        INSERT INTO vegetables (id, name) VALUES<br>
+        (1, 'Carrot'),<br>
+        (2, 'Broccoli'),<br>
+        (3, 'Tomato'),<br>
+        (4, 'Lettuce'),<br>
+        (5, 'Cucumber');<br>
+        Now, let's perform the UNION, INTERSECT, and MINUS operations:<br>
+
+        UNION operation:<br>
+        The UNION operator is used to combine the result sets of two or more SELECT statements into a single result
+        set.<br>
+
+        Example:<br>
+
+        sql
+        Copy code
+        SELECT name FROM fruits<br>
+        UNION<br>
+        SELECT name FROM vegetables;<br>
+        Output:<br>
+
+        diff
+        Copy code
+        +----------+<br>
+        | name |<br>
+        +----------+<br>
+        | Apple |<br>
+        | Banana |<br>
+        | Orange |<br>
+        | Grape |<br>
+        | Mango |<br>
+        | Carrot |<br>
+        | Broccoli |<br>
+        | Tomato |<br>
+        | Lettuce |<br>
+        | Cucumber |<br>
+        +----------+<br>
+        In this example, we selected the names of all fruits and vegetables using the UNION operator.<br>
+
+        INTERSECT operation:<br>
+        The INTERSECT operator is used to select only the common rows returned by two SELECT statements.<br>
+
+        Example:<br>
+
+        sql
+        Copy code
+        SELECT name FROM fruits<br>
+        INTERSECT<br>
+        SELECT name FROM vegetables;<br>
+        Output:<br>
+
+        sql
+        Copy code<br>
+        +-------+<br>
+        | name |<br>
+        +-------+<br>
+        | None |<br>
+        +-------+<br>
+        In this example, we selected the names of all fruits and vegetables using the INTERSECT operator. However, since
+        there are no common fruits and vegetables, the result set is empty.
+        <br>
+        MINUS operation:<br>
+        The MINUS operator is used to select all rows returned by the first SELECT statement but not by the second
+        SELECT
+        statement.
+        <br>
+        Example:<br>
+
+        sql
+        Copy code
+        SELECT name FROM fruits<br>
+        MINUS<br>
+        SELECT name FROM vegetables;<br>
+        Output:<br>
+
+        diff
+        Copy code<br>
+        +--------+<br>
+        | name |<br>
+        +--------+<br>
+        | Apple |<br>
+        | Banana |<br>
+        | Orange |<br>
+        | Grape |<br>
+        | Mango |<br>
+        +--------+<br>
+        In this example, we selected the names of all fruits that are not also vegetables using the MINUS operator.<br>
+      </p>
+
+
+    </div>
+  </main>
+</body>
+
+</html>
